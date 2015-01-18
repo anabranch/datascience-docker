@@ -5,7 +5,7 @@ MAINTAINER Wise.io, Inc. <help@wise.io>
 ENV DEBIAN_FRONTEND noninteractive
 
 # Install packages
-RUN apt-get -y update && apt-get install -y wget nano locales curl unzip wget openssl gcc
+RUN apt-get -y update && apt-get install -y wget nano locales curl unzip wget openssl gcc libxml2-dev libxslt1-dev python-dev
 ENV LANGUAGE en_US.UTF-8
 ENV LANG en_US.UTF-8
 
