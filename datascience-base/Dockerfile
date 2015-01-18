@@ -5,7 +5,7 @@ MAINTAINER Wise.io, Inc. <help@wise.io>
 ENV DEBIAN_FRONTEND noninteractive
 
 # Install packages
-RUN apt-get -y update && apt-get install -y wget nano locales curl unzip wget openssl
+RUN apt-get -y update && apt-get install -y wget nano locales curl unzip wget openssl gcc
 ENV LANGUAGE en_US.UTF-8
 ENV LANG en_US.UTF-8
 
@@ -32,6 +32,7 @@ RUN conda install scipy numpy scikit-learn scikit-image pyzmq nose readline pand
 
 # Get plotly
 RUN pip install plotly
+RUN pip install lxml
 
 ENV PEM_FILE /key.pem
 # $PASSWORD will get `unset` within notebook.sh, turned into an IPython style hash
