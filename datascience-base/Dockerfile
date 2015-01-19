@@ -1,6 +1,6 @@
 FROM ubuntu:14.04
 
-MAINTAINER Wise.io, Inc. <help@wise.io>
+MAINTAINER Bill Chambers, http://billchambers.me
 
 ENV DEBIAN_FRONTEND noninteractive
 

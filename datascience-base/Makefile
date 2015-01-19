@@ -1,4 +1,4 @@
 image:
-	docker build -t wiseio/datascience-base .
+	docker build -t ds-base .
 
 
