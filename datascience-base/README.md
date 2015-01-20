@@ -3,23 +3,21 @@ Dockerized Notebook for (Pythonic) Data Science
 
 Docker container with Python data science tools (particularly, pandas, numpy, matplotlib, plotly, sklearn, scikit-image) the IPython notebook (single user).
 
-*This wiseio.io image is based off of the official [https://github.com/ipython/docker-notebook/tree/master/notebook](Dockerfiles from IPython), but using [http://continuum.io](Continuum/Anaconda) rather than bleeding edge base containers.*
+*This image is based off of that belonging to wise.io*
 
 ## Quickstart the Notebook Server
 
 Set a few environment variables locally (add later to `.bash_profile` if you like):
 
 ```
-export HACKDAY_CODE_DIR="$(PWD)"           # or wherever you want to code
-export HACKDAY_DATA_DIR="$(PWD)/data"      # likewise.
-export IPYTHON_PASSWORD=MakeAPassword # not this!
-alias wiseds="docker run -d -p 80:8888 -v $(PWD):/workspace/ -v $(PWD)/data:/workspace/data -e "PASSWORD=$IPYTHON_PASSWORD" wiseio/datascience-base ; echo 'Now go to your browser: http://$(boot2docker ip). The password is $IPYTHON_PASSWORD' "
+export IPYTHON_PASSWORD=DATASCI
+alias do-ds='docker run -d -p 80:8888 -v `pwd`:/workspace/ -v `pwd`/data:/workspace/data -e "PASSWORD=$IPYTHON_PASSWORD" ds-base ; echo "Now go to your browser: http://$(boot2docker ip). The password is $IPYTHON_PASSWORD" '
 ```
 
 Assuming you have docker installed, run this to start up a notebook server over HTTPS.
 
 ```
-docker run -d -p 80:8888 -v $HACKDAY_CODE_DIR:/workspace/ -v $HACKDAY_DATA_DIR:/workspace/data -e "PASSWORD=$IPYTHON_PASSWORD" wiseio/datascience-base
+docker run -d -p 80:8888 -v `pwd`:/workspace/ -v `pwd`/data:/workspace/data -e "PASSWORD=$IPYTHON_PASSWORD" ds-base ; echo "Now go to your browser: http://$(boot2docker ip). The password is $IPYTHON_PASSWORD"
 ```
 
 You'll now be able to access your notebook at https://localhost with password MakeAPassword (please change the environment variable above).
